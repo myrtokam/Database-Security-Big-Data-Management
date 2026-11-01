@@ -1,0 +1,6 @@
+Paste complete Query 1 output here.
+
+dataset       total_records  unique_diagnoses  mean_encounter_cost  stddev_encounter_cost
+ORIGINAL      100            10                457.25               205.73
+ANONYMIZED    100            10                457.25               205.73
+

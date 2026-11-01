@@ -1,0 +1,9 @@
+USE healthcare_assignment;
+
+SELECT
+    med_id,
+    indication AS before_masking,
+    indication_masked AS after_masking
+FROM farmaka
+ORDER BY med_id
+LIMIT 10;

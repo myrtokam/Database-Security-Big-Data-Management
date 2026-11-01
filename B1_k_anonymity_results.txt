@@ -1,0 +1,65 @@
+Paste the outputs from B1_k_anonymity_verification.sql.
+
+INITIAL release output:
+
+FINAL release output:
+
+Minimum final group size:
+
+Short conclusion (2-4 sentences):
+
+
+----------------------------------------------------------------------
+
+release_stage	age_group	gender	zipcode_prefix	group_size	k_status
+INITIAL	            18-30	   M	        100.    	7	        OK
+INITIAL         	18-30	   O        	100.     	7	        OK
+INITIAL	            31-50	   M	        101.     	7	        OK
+INITIAL	            31-50	   O	        101.     	7.      	OK
+INITIAL	            51-70	   F	        100	        7	        OK
+INITIAL             51-70	   M.        	100	        7.       	OK
+INITIAL	            71+ 	   F.        	101	        7.       	OK
+INITIAL          	71+ 	   O.           101.      	7	        OK
+INITIAL.         	18-30.     F	        100	        8.       	OK
+INITIAL	            31-50	   F	        101	        8.      	OK
+INITIAL         	51-70	   O.        	100	        8.       	OK
+INITIAL.        	71+	       M.       	101	        8	        OK
+
+12 equivalence classes — 88 patients — 0 violations.
+
+
+FINAL release output
+
+release_stage	age_group	gender	zipcode_prefix	group_size	k_status
+FINAL           	18-50   	*	     OTH	          6	      OK
+FINAL.           	51+	        *	     OTH	          6	      OK
+FINAL	            18-50	    M	     10*	          14	  OK
+FINAL	            18-50	    O	     10*	          14	  OK
+FINAL	            51+	        F	     10*	          14	  OK
+FINAL	            51+      	M.       10*	          15	  OK
+FINAL.          	51+      	O	     10*	          15	  OK
+FINAL	            18-50.   	F	     10*.             16	  OK
+
+8 equivalence classes — 100 patients — 0 violations.
+Minimum final group size
++--------------------------+
+| minimum_final_group_size |
++--------------------------+
+|                        6 |
++--------------------------+
+
+
+
+ 
+ FINAL DATASET IN GREEK
+
+Η αρχική έκδοση (INITIAL) περιλαμβάνει 88 από τους 100 ασθενείς, καθώς 12 εγγραφές αποκλείστηκαν μέσω row suppression για την επίτευξη k-anonymity με k ≥ 3. Στην τελική έκδοση (FINAL), η γενίκευση των ηλικιακών ομάδων και των ταχυδρομικών κωδίκων, σε συνδυασμό με την τοπική απόκρυψη χαρακτηριστικών, επέτρεψε τη διατήρηση και των 100 εγγραφών. Το ελάχιστο μέγεθος ομάδας είναι 6, επομένως όλες οι ομάδες ικανοποιούν την απαίτηση k ≥ 3, χωρίς αυτό να εξαλείφει κάθε πιθανό κίνδυνο αποκάλυψης ευαίσθητων πληροφοριών.
+
+English
+
+The INITIAL release contains 88 out of 100 patients, as 12 records were excluded through row suppression to achieve k-anonymity with k ≥ 3. In the FINAL release, age and ZIP code generalization, combined with local attribute suppression, preserved all 100 patient records. The minimum equivalence-class size is 6, confirming that every group satisfies k ≥ 3, although this does not eliminate all potential risks of sensitive information disclosure.
+
+
+
+
+Για την παράδοση: Τα αποτελέσματα έχουν υπολογιστεί από το δοσμένο SQL dataset. Επειδή ο καθηγητής ζητά να επικολλήσεις τα πραγματικά outputs του B1_k_anonymity_verification.sql, επιβεβαίωσε τις τιμές στο MySQL Workbench πριν τις υποβάλεις.

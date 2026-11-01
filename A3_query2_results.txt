@@ -1,0 +1,13 @@
+age_group	gender	zipcode_prefix	ethnicity	group_size	linkage_risk
+18-30	F	546	Caucasian	        1	CRITICAL
+18-30	M	154	Caucasian	        1	CRITICAL
+18-30	O	570	Caucasian       	1	CRITICAL
+31-50	F	546	African American	1	CRITICAL
+31-50	M	154	African American	1	CRITICAL
+31-50	O	570	African American	1	CRITICAL
+51-70	F	546	Hispanic	        1	CRITICAL
+51-70	M	154	Hispanic	        1	CRITICAL
+51-70	O	570	Hispanic.       	1	CRITICAL
+71+	F	546	Asian	                1	CRITICAL
+71+	M	154	Asian	                1	CRITICAL
+71+	O	570	Asian	                1	CRITICAL

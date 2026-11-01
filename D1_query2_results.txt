@@ -1,0 +1,8 @@
+
+dataset       age_dimension   patient_count   mean_cost
+ORIGINAL      18-30           25              404.00
+ORIGINAL      31-50           25              439.50
+ORIGINAL      51-70           25              475.00
+ORIGINAL      71+             25              510.50
+ANONYMIZED    18-50           50              421.75
+ANONYMIZED    51+             50              492.75

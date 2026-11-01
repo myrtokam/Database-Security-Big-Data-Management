@@ -1,0 +1,29 @@
+A1 VERIFICATION - paste the actual MySQL outputs below each query.
+
+1) SELECT COUNT(*) FROM asthenis;
+OUTPUT:
+
+2) SELECT COUNT(*) FROM synantiseis;
+OUTPUT:
+
+3) SELECT COUNT(*) FROM farmaka;
+OUTPUT:
+
+4) SELECT COUNT(*) FROM ergastiriaka_apotelesmata;
+OUTPUT:
+
+5) SELECT s.encounter_id, s.patient_id, a.patient_id
+   FROM synantiseis s JOIN asthenis a ON s.patient_id=a.patient_id
+   ORDER BY s.encounter_id LIMIT 5;
+OUTPUT:
+
+6) SHOW CREATE TABLE asthenis;
+OUTPUT / key evidence (constraints and index):
+
+7) SHOW CREATE TABLE synantiseis;
+OUTPUT / key evidence (FK, CHECK, indexes):
+
+
+8) SHORT INTEGRITY CONCLUSION (2-4 sentences)
+Using your SHOW CREATE / JOIN evidence, explain what the completed FK/CHECK/index controls verify about data integrity and query support.
+STUDENT ANSWER:

@@ -1,0 +1,47 @@
+TEST 1 - analyst_test -> analyst_view
+Actual output / evidence:
+
+USE healthcare_assignment;
+SELECT * FROM analyst_view LIMIT 5;
+
+TEST 2 - analyst_test -> clinician_view
+Actual error / evidence:
+
+USE healthcare_assignment;
+SELECT * FROM clinician_view LIMIT 5;
+
+TEST 3 - clinician_test -> clinician_view
+Actual output / evidence:
+
+USE healthcare_assignment;
+SELECT * FROM clinician_view LIMIT 5;
+
+
+
+ C1 – RBAC Access Test Results
+
+
+
+TEST 1 – analyst_test → analyst_view**
+
+Expected result: SUCCESS
+
+Actual output / evidence:
+[Paste the actual query results here]
+
+
+TEST 2 – analyst_test → clinician_view**
+
+Expected result: ACCESS DENIED
+
+Actual error / evidence:
+[Paste the exact MySQL error message here]
+
+
+TEST 3 – clinician_test → clinician_view**
+
+Expected result: SUCCESS
+
+Actual output / evidence:
+[Paste the actual query results here]
+

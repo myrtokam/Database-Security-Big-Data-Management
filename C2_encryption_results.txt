@@ -1,0 +1,11 @@
+Paste the 5-row encryption/decryption verification output here.
+
+encounter_id.                    	diagnosis_hex	diagnosis_decrypted	cost_hex	cost_decrypted
+1	DB9B524662F13C70682BA6FE1AC232F9	I25.10	    7FB5672ADDEB2CF4B541A542B3D1AB3C	262.00
+2	B2AC990BE9867C653D4066B081661517	C50.9.  	5196C7F13495E34305554558E56B10EF	404.00
+3	DA532F379E8E5BF1ABCE0246B02AA4E3	J45.9	    59EA03F7520FBB9A411EF6FFDC4C7AA3	546.00
+4	BD16D36455F1A03EF6EEF2E935B700D1	M17.9	    7544B6E3121328A5AC9A246A0535A821	688.00
+5	75D195F8C92708CA42405E3514D23DD6	E11.9	    3AA7D8EC39B40E810AA290F536CA0307	120.00
+
+
+The encryption/decryption verification output returned five records. For example, encounter 1 displayed the encrypted diagnosis as `DB9B524662F13C70682BA6FE1AC232F9`, which was decrypted to `I25.10`, while the encrypted cost was successfully decrypted to `262.00`. This demonstrates that the stored ciphertext can be converted back into readable values using the appropriate decryption key.

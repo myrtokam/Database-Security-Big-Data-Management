@@ -1,0 +1,56 @@
+C3 AUDIT TEST - execute these statements after triggers/procedure are created.
+
+USE healthcare_assignment;
+
+1) INSERT test row (must create an INSERT audit event):
+INSERT INTO synantiseis(patient_id, encounter_date, primary_diagnosis, severity, encounter_cost, insurance_type)
+VALUES (1, '2025-12-01', 'Z00.0', 'Mild', 50.00, 'Private');
+SET @audit_test_id = LAST_INSERT_ID();
+
+2) UPDATE the same row (must create UPDATE event):
+UPDATE synantiseis SET encounter_cost = 55.00 WHERE encounter_id = @audit_test_id;
+
+3) DELETE the same row (must create DELETE event and restore base count):
+DELETE FROM synantiseis WHERE encounter_id = @audit_test_id;
+
+4) SELECT logging through procedure:
+CALL sp_select_researcher_view(5);
+
+5) Paste the final last-20 audit query output below:
+
+OUTPUT:
+
+log_id	action_type 	table_name	   affected_records            status
+5	      SELECT	  researcher_view	      5	           LOGGED_BY_PROCEDURE
+4	      DELETE      synantiseis	          1	           SUCCESS
+3	      UPDATE	  synantiseis	          1	           SUCCESS
+2	      INSERT	  synantiseis	          1.           SUCCESS
+1	      SELECT	  researcher_view.        5	           LOGGED_BY_PROCEDURE
+
+
+
+IN GREEK
+
+
+
+Η δοκιμή καταγραφής ενεργειών (Audit Test) ολοκληρώθηκε με επιτυχία, καταγράφοντας και τους τέσσερις απαιτούμενους τύπους λειτουργιών της βάσης δεδομένων: **INSERT, UPDATE, DELETE και SELECT**.
+
+Τα αποτελέσματα του πίνακα `audit_log` δείχνουν ότι οι ενέργειες INSERT, UPDATE και DELETE στον πίνακα `synantiseis` δημιούργησαν η καθεμία ξεχωριστή εγγραφή καταγραφής, με κατάσταση `SUCCESS` και μία επηρεαζόμενη εγγραφή (`affected_records = 1`).
+
+Επιπλέον, το αίτημα SELECT που εκτελέστηκε μέσω της αποθηκευμένης διαδικασίας (Stored Procedure) `sp_select_researcher_view(5)` καταγράφηκε επίσης με επιτυχία, με κατάσταση `LOGGED_BY_PROCEDURE` και τιμή `affected_records = 5`, η οποία αντιπροσωπεύει το ζητούμενο όριο εγγραφών.
+
+Όλες οι καταγεγραμμένες ενέργειες πραγματοποιήθηκαν μέσω του λογαριασμού `root@localhost`.
+
+Τα αποτελέσματα αποδεικνύουν ότι οι μηχανισμοί καταγραφής που υλοποιήθηκαν, δηλαδή τα **Database Triggers** και η **Stored Procedure**, δημιούργησαν τις αναμενόμενες εγγραφές στον πίνακα `audit_log` κατά τη διάρκεια της εκπαιδευτικής δοκιμής.
+
+IN ENGLISH
+
+
+
+The audit test successfully recorded all four required database operations: INSERT, UPDATE, DELETE, and SELECT.
+
+The audit log shows that the INSERT, UPDATE, and DELETE operations on the `synantiseis` table each generated a separate audit record with the status `SUCCESS` and one affected record.
+
+The SELECT request executed through `sp_select_researcher_view(5)` was also recorded successfully, with the status `LOGGED_BY_PROCEDURE` and an affected_records value of 5, representing the requested row limit.
+
+All recorded operations were performed under the `root@localhost` account. The results demonstrate that the implemented triggers and stored procedure generated the expected audit entries during the educational test.
